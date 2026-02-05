@@ -66,7 +66,7 @@ jobs:
           FULL_IMAGE="$REGISTRY/$REPO:$TAG"
 
           aws ssm send-command \
-            ---targets "Key=tag:${{ secrets.ASG_TAG_KEY}}, Values=${{ secrets.ASG_TAG_VALUE }}" \
+            --targets "Key=tag:${{ secrets.ASG_TAG_KEY }},Values=${{ secrets.ASG_TAG_VALUE }}" \
             --document-name "AWS-RunShellScript" \
             --comment "Deploying Nginx via GitHub Actions" \
             --region ${{ secrets.AWS_REGION }} \
